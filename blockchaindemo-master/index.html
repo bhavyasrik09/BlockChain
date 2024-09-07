@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Blockchain | Demo</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+        <!--     Fonts and icons     -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+        <!-- Material Kit CSS -->
+        <link rel="stylesheet" href="./assets/css/material-kit.min.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
+
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="header text-center">
+                <h1>BLOCKCHAIN</h1>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- Worker 1 -->
+                    <div class="worker card">
+                        <div class="card-block">
+                            <div class="d-flex justify-content-between">
+                                <h4 class="text-left">Server Farm</h4>
+                                <button class="btn btn-primary btn-fab btn-round btn-sm" data-toggle="modal" data-target="#workerModal">
+                                    <i class="material-icons">info</i>
+                                </button>     
+                            </div>
+
+                            <div class="progress progress-line-primary">
+                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%;"></div>
+                            </div>
+
+                            <div class="workerInfo d-flex flex-row justify-content-between">
+                                <p class="card-text">Total Rewards:
+                                    <span id="rewardsSpan1" class="card-text">4 SDC</span>
+                                </p>
+                            </div>
+                            <div class="workerStatus d-flex justify-content-left align-items-center">
+                                <h6 id="status1">Waiting for job</h6><i id="tick1" class="material-icons tick hidden ">done</i>
+                                <div class="loader hidden "></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Worker 2 -->       
+                    <div class="worker card">
+                        <div class="card-block">
+                            <h4 class="text-left">Single GPU</h4>
+                            <div class="progress progress-line-primary">
+                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:10%;"></div>
+                            </div>
+
+
+                            <div class="workerInfo d-flex flex-row justify-content-between">
+                                <p class="card-text">Total Rewards:
+                                    <span id="rewardsSpan2" class="card-text">4 SDC</span>
+                                </p>
+                            </div>
+                            <div class="workerStatus d-flex justify-content-left align-items-center">
+                                <h6 id="status2">Waiting for job</h6><i id="tick2" class="material-icons tick hidden ">done</i>
+                                <div class="loader hidden "></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Worker 3 -->       
+                    <div class="worker card">
+                        <div class="card-block">
+                            <h4 class="text-left">Mining Rig</h4>
+                            <div class="progress progress-line-primary">
+                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:30%;"></div>
+                            </div>
+
+                            <div class="workerInfo d-flex flex-row justify-content-between">
+                                <p class="card-text">Total Rewards:
+                                    <span id="rewardsSpan3" class="card-text">4 SDC</span>
+                                </p>
+                            </div>
+                            <div class="workerStatus d-flex justify-content-left align-items-center">
+                                <h6 id="status3">Waiting for job</h6><i id="tick3" class="material-icons tick hidden ">done</i>
+                                <div class="loader hidden "></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="addNewWorker d-flex justify-content-center">
+                        <button class="btn btn-primary btn-fab btn-round">
+                            <i class="material-icons">add</i>
+                        </button>        
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="gBlock card" >
+                        <div class="transactHeader d-flex justify-content-between align-items-center">
+                            <h4>Transaction</h4>
+                            <button class="btn btn-primary btn-fab btn-round btn-sm" data-toggle="modal" data-target="#transactModal">
+                                    <i class="material-icons">info</i>
+                            </button>        
+                        </div>
+                        <form>
+                            <div class="form-group">
+                                <label for="from" class="bmd-label-floating">From</label>
+                                <input type="text" class="form-control" id="from" minlength="1">
+                                <span class="bmd-help">Enter the name of the person (or wallet address) of the person sending SDC</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="to" class="bmd-label-floating">To</label>
+                                <input type="text" class="form-control" id="to">
+                                <span class="bmd-help">Enter the name of the person (or wallet address) of the person receiving SDC</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="bmd-label-floating">Amount (of SDC)</label>
+                                <input type="number" class="form-control" id="amount">
+                                <span class="bmd-help">Enter the amount of SDC to transfer</span>
+                            </div>    
+                        </form>
+                            <div id="generateButtonDiv" class="d-flex flex-row justify-content-between align-items-baseline">
+                                <p id="currentDateTime"></p>
+                                <input type="submit" id="generateButton" value="Transfer" class="btn btn-primary"/>
+                            </div>
+                        
+                    </div>
+
+                    <div class="blockchainDiv card">
+                        <div class="d-flex justify-content-between">
+                            <h4> Elite Prowess - Blockchain</h4>
+                            <button class="btn btn-primary btn-fab btn-round btn-sm" data-toggle="modal" data-target="#blockchainModal">
+                                <i class="material-icons">info</i>
+                            </button>    
+                        </div>  
+                        <hr>
+                        <div id="blockchainDiv" class="theChain">
+                            <!-- the chain will go here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card priceCard">
+                        <div bw-theme="light" class="btcwdgt-price" bw-cur="usd"></div>
+                    </div>
+                    <div class="card newsCard">
+                        <div bw-theme="light" class="btcwdgt-news"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Worker Modal -->
+        <div class="modal fade" id="workerModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Workers</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="material-icons">clear</i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            The workers (or miners) are tasked with uncovering new coins and do this by computing a complex algorithm.
+                            Each worker is a powerful computer that runs the blockchain software and helps to keep it running by participating in the relay of information.
+                            Anyone can run a worker, you just download the blockchain software and leave a certain port open (the drawback is that it consumes energy and storage space – the bitcoin network at time of writing takes up about 150GB).
+                            
+                        </p>
+                        <p>
+                            The workers take a transaction (or block) and add it to the blockchain. They do this by solving a complex mathematical puzzle 
+                            and including the answer in the block. The puzzle that needs solving is to find a number that, when combined with the data in the block and passed through a hash 
+                            function, produces a result that is within a certain range. In this exmaple the puzzle is to find a hash that starts "00f0". Real blockchains, like Bitcoin, have a much harder puzzle to solve.
+                        <p>
+                            The number that solves the puzzle is called a “nonce”, which is a concatenation of “number used once.”
+                        </p>
+                        </p>
+                        <p>
+                            The more compute power you have, the more likely you are to find the nonce and claim the reward. 
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  End Modal -->
+
+        <!-- Transaction Modal -->
+        <div class="modal fade" id="transactModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Transaction</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i class="material-icons">clear</i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Blockchains can theoretically store anything in a secure and distributed manner. In this example we
+                                are storing transactions of the imaginary ELITEPROWESSCOIN (SDC). Whichever worker can prove the block by guessing the nonce 
+                                will be rewarded with a random amount (between 1 and 6) of SDC.                                
+                            </p>
+                            <p>
+                                Enter your information in the fields and hit transfer. The input data along with the index, the current date and time
+                                 and the previous hash constitute the block to be 'solved'. This block is passed to all the workers who then attempt to solve the 
+                                 algrorithm, i.e. find the nonce.
+                            </p>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  End Modal -->
+
+            <!-- Blockchain Modal -->
+            <div class="modal fade" id="blockchainModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Transaction</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i class="material-icons">clear</i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                In this section you will see the actual blockchain for ELITEPROWESSCOIN. Each block has been calculated
+                                so that the hashed value of the data, the previous block's hash, the index and the nonce start with '00f0'
+                                                          
+                            </p>
+                            <p>
+                                The security of the blockchain comes from having a distributed system and the 'chain' effect
+                                of always using the previous hash in the new calculation. If somebody attempted to modify some of the saved data 
+                                the calculation of the nonce would no longer be valid - it would require a different nonce to make the hash start with '00f0. Other workers or nodes in the distributed system 
+                                would pick this up and invalidate the change.
+                            </p>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  End Modal -->
+    
+
+    <script>
+        (function(b,i,t,C,O,I,N) {
+            window.addEventListener('load',function() {
+            if(b.getElementById(C))return;
+            I=b.createElement(i),N=b.getElementsByTagName(i)[0];
+            I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
+            },false)
+        })(document,'script','https://widgets.bitcoin.com/widget.js','btcwdgt');
+    </script>
+
+    <!--   Core JS Files   -->
+    <script src="./assets/js/core/jquery.min.js"></script>
+    <script src="./assets/js/core/popper.min.js"></script>
+    <script src="./assets/js/bootstrap-material-design.js"></script>
+    <script src="./assets/js/plugins/moment.min.js"></script>
+        
+
+    <!-- Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+    <script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+
+    <!-- Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="./assets/js/plugins/nouislider.min.js"></script>
+
+    <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+    <script src="./assets/js/material-kit.js?v=2.0.0"></script>
+
+    <!-- My Javascript file -->
+    
+   <!--  <script src="http://cdn.rawgit.com/chrisveness/crypto/4e93a4d/sha256.js"></script> -->
+    <script src="./assets/js/sha256.js"></script>
+
+    <script src="./assets/js/script.js"></script>
+
+    </body>
+</html>
